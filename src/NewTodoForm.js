@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-// import {v4 as uuidv4} from 'uuid';
+import {v4 as uuidv4} from 'uuid';
  
 class NewTodoForm extends Component{
     constructor(props){
@@ -17,7 +17,7 @@ class NewTodoForm extends Component{
     }
     handleSubmit(evt){
         evt.preventDefault();//for what?
-        this.props.createTodo(this.state)//erro here
+        this.props.createTodo({...this.state,id:uuidv4()})//erro here
         this.setState({ //cleaning the state for next submit
             task:""
         })
