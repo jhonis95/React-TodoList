@@ -15,8 +15,8 @@ class TodoList extends Component{
     }
     create(newTodo){//adding a new todo to the list
         this.setState({
-            todos:[...this.state.todos,newTodo]
-        })
+            todos: [...this.state.todos, newTodo]
+          });
     }
     render(){
         const todos=this.state.todos.map(todos=>{//savind all the todos in one variable to display in render function

@@ -1,8 +1,9 @@
-import React,{Component} from "react"
-
+import React,{Component} from "react";
+// import {v4 as uuidv4} from 'uuid';
+ 
 class NewTodoForm extends Component{
-    constructor(){
-        super(this.props)
+    constructor(props){
+        super(props)
         this.state={
             task:""
         };
@@ -15,25 +16,25 @@ class NewTodoForm extends Component{
         })
     }
     handleSubmit(evt){
-        evt.preventDefalt();//for what?
-        this.props.createTodo(this.state)
+        evt.preventDefault();//for what?
+        this.props.createTodo(this.state)//erro here
         this.setState({ //cleaning the state for next submit
             task:""
         })
     }
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className='NewTodoForm' onSubmit={this.handleSubmit}>
                 <label htmlFor='task'>New Todo</label>
-                <input 
-                    type='text' 
-                    name="task"
-                    placeholder="New Todo" 
-                    id="task"
+                <input
+                    type='text'
+                    placeholder='New Todo'
+                    id='task'
+                    name='task'
                     value={this.state.task}
                     onChange={this.handleChange}
                 />
-                <button>Add Todo</button>
+                <button type="submit">Add Todo</button>
             </form>
         )
     }
