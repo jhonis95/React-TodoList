@@ -16,8 +16,8 @@ class NewTodoForm extends Component{
         })
     }
     handleSubmit(evt){
-        evt.preventDefault();//for what?
-        this.props.createTodo({...this.state,id:uuidv4()})//erro here
+        evt.preventDefault();//prevent the page to reload
+        this.props.createTodo({...this.state,id:uuidv4(),completed:false})//erro here
         this.setState({ //cleaning the state for next submit
             task:""
         })
